@@ -1,0 +1,76 @@
+{
+  "name": "mistri-man-jao-error",
+  "displayName": "Mistri Man Jao Error",
+  "description": "Plays a sound once when a command in the terminal fails",
+  "version": "0.0.2",
+  "publisher": "Memextension",
+  "icon": "icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "error",
+    "errors",
+    "sound",
+    "audio",
+    "alert",
+    "notification",
+    "terminal",
+    "meme",
+    "mistri",
+    "mistri man jao"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "error-sound.test",
+        "title": "Mistri Man Jao Error: Play Test Sound"
+      }
+    ],
+    "configuration": {
+      "title": "Mistri Man Jao Error",
+      "properties": {
+        "errorSound.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Turn the error sound on or off."
+        },
+        "errorSound.cooldownMs": {
+          "type": "number",
+          "default": 1000,
+          "description": "Minimum time between sounds, in milliseconds."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.140.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
